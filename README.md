@@ -2,7 +2,6 @@
 
 A premium dark-themed mobile app UI prototype for medicine reminders, built as a pair of companion apps — one for the **elder** and one for their **caretaker**.
 
-> ⚠️ This is a **UI/UX design prototype only.** No backend, no database, no real notifications. All interactions are simulated with vanilla JavaScript.
 
 ---
 
