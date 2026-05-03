@@ -1,24 +1,107 @@
-# Medireminder
-MediCare started from a simple frustration — every medicine reminder app looks like a hospital. White backgrounds, harsh alerts, clinical icons. For someone who takes the same four pills every single day, that constant medical-institution feel gets exhausting fast.
+# 💊 MediCare — Medicine Reminder
 
-So the direction was completely flipped. Dark, warm, dignified. The kind of app that feels like it was made for a person, not a patient.
+A premium dark-themed mobile app UI prototype for medicine reminders, built as a pair of companion apps — one for the **elder** and one for their **caretaker**.
 
-The copper accent came first. It references aged metal, old apothecary cabinets, things that have been trusted for generations. Not gold (too flashy) and not orange (too casual) — copper sits right in between, warm and precious without demanding attention. Everything else in the palette supports it: near-black canvas, dark plum cards, crimson for urgency, deep blue for calm upcoming states.
+> ⚠️ This is a **UI/UX design prototype only.** No backend, no database, no real notifications. All interactions are simulated with vanilla JavaScript.
 
-For the fonts, Playfair Display italic handles all the emotional moments — the greeting, the medication names, the logotype. It reads like a personal letter rather than a dashboard. Lato handles everything functional — buttons, labels, navigation — because it stays sharp and clear even at small sizes on dark backgrounds. Together they create something that feels both warm and trustworthy.
+---
 
-The big accessibility decisions were mostly about removing things. No progress bars — just "3 of 5." No overlapping states — only taken, due, and upcoming. Buttons much larger than standard. Touch targets sized for hands that might shake a little. Text sized for eyes that have seen a lot of years.
+## 📱 Apps
 
-The caregiver card lives on the home screen because family members checking in is part of daily reality for most elderly users, not an edge case to bury in settings.
+### 1. MediCare — Elder App (`medireminder.html`)
+The patient-facing interface. Designed for elderly users with a warm copper-toned dark theme for comfort and readability.
 
-<img width="396" height="834" alt="Screenshot 2026-04-01 at 17 32 04" src="https://github.com/user-attachments/assets/330d5691-f8d7-426b-b05c-37efc3bccf02" />
+**Screens:**
+- **Splash** — Animated welcome screen with app branding
+- **Home** — Today's medicine schedule with Taken / Due / Upcoming badges
+- **All Medicines** — Full list of prescribed medications
+- **Medicine Detail** — Dosage info, timeline, and intake history
+- **Add Medicine** — Form to add a new medicine with schedule
+- **Reminder Alert** — Full-screen alert for due medicines
+- **Profile** — User profile with caregiver contact strip
+- **Widgets** — Quick-access widget previews
 
-<img width="436" height="851" alt="Screenshot 2026-04-01 at 17 33 20" src="https://github.com/user-attachments/assets/2b5b81b2-6735-4fd2-87d2-a96d2b5238e2" />
+---
 
-<img width="434" height="846" alt="Screenshot 2026-04-01 at 17 33 08" src="https://github.com/user-attachments/assets/c71a342b-fd5a-4dfc-be68-4f009ef4b8ad" /> 
+### 2. CareView — Caretaker App (`medicare_caretaker.html`)
+The caretaker-facing companion interface. Steel-blue dark theme to visually differentiate roles.
 
-<img width="426" height="836" alt="Screenshot 2026-04-01 at 17 32 55" src="https://github.com/user-attachments/assets/2d9f909a-9b39-4af8-95c1-8733e1b55664" /> 
+**Screens:**
+- **Splash** — "Stay in touch with every dose, every day" — role-identified entry screen
+- **Dashboard** — Patient adherence ring (%), taken/pending/missed stats, missed dose alerts, today's full schedule, quick actions
+- **Patient Progress** — Per-medicine course tracking (Day X of Y), progress bars, 7-day color-coded adherence dots
+- **Add Medicine** — Caretaker-specific form: Prescribed By, Course Duration, private Caretaker Note, "Alert me if missed" toggle — saves & syncs to elder app
+- **Activity Log & Notes** — Chronological event timeline (Today / Yesterday / This Week), inline "Mark as Taken", note modal with quick tags (#Dose late, #Side effect, #Doctor call, #Good day)
+- **Profile & Settings** — Adherence stats, linked patient section, notification toggles, Export Progress Report
 
-<img width="422" height="837" alt="Screenshot 2026-04-01 at 17 32 35" src="https://github.com/user-attachments/assets/c3d8a67e-5045-4bfa-9425-288831e193b1" /> 
+---
 
-<img width="407" height="833" alt="Screenshot 2026-04-01 at 17 32 17" src="https://github.com/user-attachments/assets/1beef245-3fe6-4e26-b5fb-00cc7c6bea26" /> 
+## 🗂️ Project Structure
+
+medireminder/
+├── medireminder.html         # Elder-facing MediCare app
+├── medicare_caretaker.html   # Caretaker-facing CareView app
+└── README.md
+
+---
+
+## 🎨 Design System
+
+| Property | Elder App | Caretaker App |
+|---|---|---|
+| Primary Accent | Copper `#B5602A` | Steel Blue `#3A80D2` |
+| Background | `#0E0B0F` | `#090B0E` |
+| Surface | `#1A1118` | `#111620` |
+| Font (Headings) | Playfair Display | Playfair Display |
+| Font (Body) | Lato | Lato |
+| Frame | 375 × 812 px | 375 × 812 px |
+
+**Shared design tokens:** `--green` (taken), `--crimson` (missed), `--amber` (overdue), `--parchment` (primary text)
+
+---
+
+## 🚀 How to Run
+
+No build step, no dependencies, no server required.
+
+1. Clone or download the repo
+2. Open either HTML file directly in a browser:
+open medireminder.html
+open medicare_caretaker.html
+
+3. Navigate between screens using the bottom navigation bar and interactive buttons
+
+---
+
+## 🔧 Tech Stack
+
+- **HTML5** — Single-file SPA per app
+- **CSS3** — Custom properties, Flexbox, CSS animations (`@keyframes`)
+- **Vanilla JavaScript** — Screen routing via `go(screenId)`, modal overlays
+- **Google Fonts** — Playfair Display + Lato
+- **SVG** — Inline icons, circular progress rings (`stroke-dasharray`)
+- **No frameworks. No dependencies. No build tools.**
+
+---
+
+## ✨ Key Features
+
+- 📱 Realistic phone shell mockup (notch, rounded corners, status bar)
+- 🌑 Premium dark theme — no eye strain for elderly users
+- 🔄 Sync flow — medicines added by caretaker reflect on elder's app
+- 📊 Course duration tracking — Day X of Y with progress bar
+- 🟢 7-day adherence dots — color-coded intake history per medicine
+- 📝 Caretaker notes — private observations with quick tags
+- 🔔 Missed dose alerts — banner and full-screen reminder
+- 📤 Export progress report option (UI only)
+
+---
+
+## 👥 Roles
+
+| Role | App | Purpose |
+|---|---|---|
+| Elder / Patient | `medireminder.html` | View schedule, mark doses taken, receive reminders |
+| Caretaker / Family | `medicare_caretaker.html` | Monitor adherence, add medicines, log observations |
+
+---
